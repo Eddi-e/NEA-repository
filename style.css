@@ -4,6 +4,7 @@ body{
 
 
 #container{
+    font: 1.2em "Fira Sans", sans-serif;
     align-items: center;
     background-color:   aliceblue;
     color:  #000;
