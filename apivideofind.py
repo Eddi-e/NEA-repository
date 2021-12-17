@@ -4,7 +4,7 @@ from googleapiclient.discovery import build
 
 import json
 
-ApiKey = "AIzaSyA2az7pxj2NqMyP95xdybDDLX9RzBO6q-k"
+ApiKey = "placement"
 youtube = build('youtube','v3',developerKey = ApiKey)
 class api():
     def __init__(self):
