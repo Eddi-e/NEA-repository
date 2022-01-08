@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>login section</title>
+        <link type = "text/css" rel = "stylesheet" href="{{ url_for('static',filename='css/style.css') }}" /> 
+    </head>
+    <body>
+        <div id = "containerlogin">
+            <div id = "header">
+                <h1>This is the login webpage</h1>
+            </div>
+            <div id = "login">
+                <form method = 'POST'>
+                    <p>email:</p>
+                    <input type="text" id="email" name="email">
+                    <p>password:</p>
+                    <input type="password" id="pass" name="password">
+                    <button class="submit" type="submit" >
+                        submit
+                    </button>
+                </form>
+            </div>
+            <div id = "details">
+                <p>
+                    filler text goes here :)
+                </p>
+            </div>
+
+        </div>
+    </body>
+</html>
