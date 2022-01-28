@@ -1,0 +1,107 @@
+<!DOCTYPE html>	
+<html>
+    <head>
+        <title>Schedule</title>
+    </head>
+
+    <body>
+        <div id = 'header'>
+            <header>Scheduler program</header>
+            
+        </div>
+        <div id = 'existing schedules'>
+            <script>
+                
+                var datain = JSON.parse('{{ topics|safe }}');
+                
+                var length = Object.keys(datain).length;
+
+                
+                for (let i = 0; i < length; i++){
+                    var node = document.getElementById('existing schedules');
+                    node.innerHTML += 
+                        '<div>'+
+                        '    <span>Topic</span>'+
+                        '    <span id = "topic'+i+'">'+datain[i].topicname+'</span>'+
+                        '    <span>Media Source</span>'+
+                        '    <span id = "mediasource'+i+'">'+datain[i].mediasource+'</span>'+
+                        '    <span>Media Type</span>'+
+                        '    <span id = "mediatype'+i+'">'+datain[i].mediatype+'</span>'+
+                        '    <span>Day</span>'+
+                        '    <span id = "day'+i+'">'+datain[i].day+'</span>'+
+                        '</div>';
+                        }
+            </script>
+        </div>
+        <div id = 'new schedules'>
+            <form method = "POST">
+                <fieldset>
+                    <legend>create schedule</legend>
+                    <label for='topics'>choose a topic</label>
+                        <select name="topics" id="topics"></select>
+                        <script>
+
+                            html = "";
+                            var datain = JSON.parse('{{ topiclist|safe }}')
+
+                            for(var key in datain) {
+                                console.log(key)
+                                html += "<option value=" + datain[key]  + ">" +datain[key] + "</option>"
+                            }
+
+                            document.getElementById("topics").innerHTML = html;
+
+                        </script>
+                    <label for='mediasource'>choose a mediasource</label>
+                    <select name="mediasource" id="mediasource"></select>
+                    <script>
+
+                        html = "";
+                        var datain = JSON.parse('{{ mediaSourcelist|safe }}')
+
+                        for(var key in datain) {
+                            console.log(key)
+                            html += "<option value=" + datain[key]  + ">" +datain[key] + "</option>"
+                        }
+
+                        document.getElementById("mediasource").innerHTML = html;
+
+                    </script>
+                    <label for='mediatype'>choose a mediatype</label>
+                    <select name="mediatype" id="mediatype"></select>
+                    <script>
+
+                        html = "";
+                        var datain = JSON.parse('{{ mediaTypelist|safe }}')
+
+                        for(var key in datain) {
+                            console.log(key)
+                            html += "<option value=" + datain[key]  + ">" +datain[key] + "</option>"
+                        }
+
+                        document.getElementById("mediatype").innerHTML = html;
+
+                    </script>
+                    <label for='day'>choose the days for the media to be sent</label>
+                    <select name='day' id='day' multiple>
+                        <option value=0>Monday</option>
+                        <option value=1>Tuesday</option>
+                        <option value=2>Wednesday</option>
+                        <option value=3>Thursday</option>
+                        <option value=4>Friday</option>
+                        <option value=5>Saturday</option>
+                        <option value=6>Sunday</option>
+                    </select>
+                    <button class="submit" type="submit" >
+                        submit
+                    </button>                   
+                    <span><b>Hold down the Ctrl (windows) / Command (Mac) button to select multiple days</b></span>
+                </fieldset>
+                
+            </form>
+        </div>
+        <a href={{url_for('topiccreate')}}>Create another topic here</a>
+    </body>
+
+
+</html>

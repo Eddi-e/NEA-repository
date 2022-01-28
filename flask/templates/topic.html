@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>create a topic</title>
+        <link type = "text/css" rel = "stylesheet" href="{{ url_for('static',filename='css/style.css') }}" /> 
+    </head>
+    <body>
+        <div id = "containerlogin">
+            <div id = "header">
+                <h1>Create a topic</h1>
+            </div>
+            <div id = "login">
+                <form method = 'POST'>
+                    <p>topic name:</p>
+                    <input type="text" id="topicname" name="topicname">
+                    <p>topic description:</p>
+                    <textarea cols="30" rows="8" id = "topicdesc" name = "topicdesc"></textarea>
+                    <button class="submit" type="submit" >
+                        submit
+                    </button>
+                </form>
+            </div>
+            <div id = "details">
+                <p>
+                    filler text goes here :)
+                </p>
+            </div>
+
+        </div>
+    </body>
+</html>
